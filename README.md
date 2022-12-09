@@ -1,27 +1,37 @@
-# Next.js + Tailwind CSS Example
+# OpenAI API Quickstart - Node.js example app
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Next.js](https://nextjs.org/) framework with [React](https://reactjs.org/). Check out the tutorial or follow the instructions below to get set up.
 
-## Deploy your own
+## Setup
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+1. If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+2. Clone this repository
 
-## How to use
+3. Navigate into the project directory
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+   ```bash
+   $ cd openai-quickstart-node
+   ```
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+4. Install the requirements
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+   ```bash
+   $ npm install
+   ```
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+5. Make a copy of the example environment variables file
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+   ```bash
+   $ cp .env.example .env
+   ```
+
+6. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
+
+7. Run the app
+
+   ```bash
+   $ npm run dev
+   ```
+
+You should now be able to access the app at [http://localhost:3000](http://localhost:3000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
