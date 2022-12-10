@@ -17,15 +17,21 @@ export default function Home() {
     if(loading) return;
     setLoading(true);
     setResult('');
-    const response = await fetch("/api/generate-gifts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-        body: JSON.stringify({ priceMin, priceMax, gender, age, hobbies }),
-    });
-    const data = await response.json();
-    setResult(data.result.replaceAll('\n', '<br />'));
+
+    try {
+        const response = await fetch("/api/generate-gifts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ priceMin, priceMax, gender, age, hobbies }),
+        });
+        const data = await response.json();
+        setResult(data.result.replaceAll('\n', '<br />'));
+    } catch (error) {
+        alert('Something went wrong, please try again later');
+    }
+
       setLoading(false);
   }
 
@@ -147,7 +153,7 @@ export default function Home() {
 
 
         </form>
-          {!loading ? (
+          {loading ? (
             <div style={{
                 width: '50%',
                 alignContent: 'center',
@@ -168,7 +174,23 @@ export default function Home() {
                 }}>Loading christmas gift ideas 🎁</h3>
             </div>
           ) : (
-              <div className={styles.result}>{result}</div>
+              <div
+                  style={{
+                        width: '50%',
+                        alignContent: 'center',
+                        justifyContent: 'center',
+                        marginTop: '30px',
+                        padding: '12px 20px',
+                        // margin: '8px 0',
+                        display: 'inline-block',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        boxSizing: 'border-box',
+                        outline: 'none',
+                        paddingRight: '10px',
+                      marginBottom: '30px'
+                  }}
+              >{result}</div>
           )}
       </main>
     </div>
