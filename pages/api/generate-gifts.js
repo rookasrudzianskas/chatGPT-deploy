@@ -14,6 +14,7 @@ export default async function (req, res) {
         prompt: generatePrompt(priceMin, priceMax, gender, age, hobbies),
         temperature: 0.6,
         // maxTokens: 2048 this is max number of tokens,
+        // tokens are separate words, could be one word of multiple tokens (like "I'm" is one token)
         max_tokens: 2048,
     });
     res.status(200).json({ result: completion.data.choices[0].text });
