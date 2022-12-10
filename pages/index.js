@@ -172,6 +172,7 @@ export default function Home() {
                     textAlign: 'center',
 
                 }}>Loading christmas gift ideas 🎁</h3>
+                <img src='/loading.gif' className={styles.result} alt=""/>
             </div>
           ) : (
               <div
