@@ -14,16 +14,19 @@ export default function Home() {
 
   async function onSubmit(event) {
     event.preventDefault();
-    const response = await fetch("/api/generate", {
+    if(loading) return;
+    setLoading(true);
+    setResult('');
+    const response = await fetch("/api/generate-gifts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ priceMin, priceMax, gender, age, hobbies }),
     });
     const data = await response.json();
-    setResult(data.result);
-    setAnimalInput("");
+    setResult(data.result.replaceAll('\n', '<br />'));
+      setLoading(false);
   }
 
   return (
@@ -144,7 +147,29 @@ export default function Home() {
 
 
         </form>
-        <div className={styles.result}>{result}</div>
+          {!loading ? (
+            <div style={{
+                width: '50%',
+                alignContent: 'center',
+                justifyContent: 'center',
+                marginTop: '30px',
+                padding: '12px 20px',
+                // margin: '8px 0',
+                display: 'inline-block',
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+                boxSizing: 'border-box',
+                outline: 'none',
+                paddingRight: '10px',
+            }}>
+                <h3 style={{
+                    textAlign: 'center',
+
+                }}>Loading christmas gift ideas 🎁</h3>
+            </div>
+          ) : (
+              <div className={styles.result}>{result}</div>
+          )}
       </main>
     </div>
   );
