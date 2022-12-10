@@ -23,8 +23,8 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <title>OpenAI Christmas 🎁</title>
+        <link rel="icon" href="https://www.favicon.cc/logo3d/574560.png" />
       </Head>
 
       <main className={styles.main}>
